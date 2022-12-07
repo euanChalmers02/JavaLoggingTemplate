@@ -92,34 +92,4 @@ public class Logging {
             throw new RuntimeException(e);
         }
     }
-
-    /**
-     * This method calculates the number of delivered orders vs undelivered orders. This is useful to be logged as allows my script {@link} to full the percentage for multiple dates and create a graph.
-     *
-     * @param orders - all the orders from selected date
-     * @return result -  as a percentage of orders satisfied
-     */
-    public static double avgOrdersSatisfied(List<Orders> orders) {
-        double yes = 0;
-        double no = 0;
-        for (Orders selected_day_order : orders) {
-            if (selected_day_order.getOutcome() == OrderOutcome.Delivered) {
-                yes = yes + 1;
-            } else if (selected_day_order.getOutcome() == OrderOutcome.ValidButNotDelivered) {
-                no = no + 1;
-            }
-        }
-        System.out.println("yes " + yes);
-        System.out.println("no " + no);
-
-        double result;
-        //catches divide by zero error
-        if (no != 0) {
-            result = ((yes / (yes + no)) * 100);
-        } else {
-            result = 100;
-        }
-        return result;
-    }
-
 }
