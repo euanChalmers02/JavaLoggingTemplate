@@ -4,7 +4,8 @@ package uk.ac.ed.inf.Logging;
  * Simple enum to allow me to categorize my log. Also includes a boolean value if they are high risk logs or not.
  */
 public enum LogType {
-    CommandLineInputError(true)
+    CommandLineInputError(true),
+    GeneralError(false)
        
     //constructor for the high risk indicator
     public final boolean highRisk;
